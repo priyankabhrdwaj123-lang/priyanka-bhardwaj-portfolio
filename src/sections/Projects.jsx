@@ -63,6 +63,30 @@ const projects = [
     status: "Practice Project",
     link: null,
   },
+  {
+    number: "07",
+    title: "SmartNumberChallenge",
+    category: "Python Game Application",
+    description:
+      "An interactive number guessing game built with Python and Flask, featuring three difficulty levels, hints, score tracking, and a leaderboard.",
+    technologies: ["Python", "Flask", "HTML", "CSS", "JSON"],
+    status: "Completed",
+    link: "https://smartnumberchallenge-1.onrender.com",
+    githubLink:
+      "https://github.com/priyankabhrdwaj123-lang/SmartNumberChallenge",
+  },
+  {
+    number: "08",
+    title: "MiniWebSearch",
+    category: "Python Web Application",
+    description:
+      "A Python-based web search application built with Flask, providing a simple interface for searching and exploring web results.",
+    technologies: ["Python", "Flask", "HTML", "CSS"],
+    status: "Completed",
+    link: "https://miniwebsearch.onrender.com",
+    githubLink:
+      "https://github.com/priyankabhrdwaj123-lang/MiniWebSearch",
+  },
 ];
 
 const Projects = () => {
@@ -160,22 +184,36 @@ const Projects = () => {
 
               {/* Card Footer */}
               <div className="mt-8 border-t border-white/10 pt-5">
-                {project.link ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-purple-300 transition-all hover:gap-3 hover:text-white"
-                  >
-                    View Live Project
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                ) : (
-                  <span className="inline-flex items-center gap-2 text-sm text-gray-500">
-                    <span className="h-2 w-2 rounded-full bg-amber-400" />
-                    Currently building
-                  </span>
-                )}
+                <div className="flex flex-wrap items-center gap-5">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-purple-300 transition-all hover:gap-3 hover:text-white"
+                    >
+                      Live Demo ↗
+                    </a>
+                  )}
+
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 transition-all hover:text-white"
+                    >
+                      GitHub ↗
+                    </a>
+                  )}
+
+                  {!project.link && (
+                    <span className="inline-flex items-center gap-2 text-sm text-gray-500">
+                      <span className="h-2 w-2 rounded-full bg-amber-400" />
+                      Currently building
+                    </span>
+                  )}
+                </div>
               </div>
             </article>
           ))}
